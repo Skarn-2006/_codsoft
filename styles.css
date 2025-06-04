@@ -1,0 +1,101 @@
+:root {
+    --bg-color: #1e1e2f;
+    --btn-bg: #383853;
+    --btn-hover-bg: #4a4a72;
+    --btn-active-bg: #5c5c9c;
+    --accent-color: #ff6e40;
+    --text-color: #e0e0e0;
+    --display-bg: #2c2c44;
+    --box-shadow-color: rgba(0,0,0,0.5);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    background: var(--bg-color);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.calculator {
+    background: var(--display-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 20px var(--box-shadow-color);
+    width: 320px;
+    max-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.display {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 2.4rem;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    text-align: right;
+    letter-spacing: 0.05em;
+    user-select: none;
+    min-height: 60px;
+    overflow-x: auto;
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+button {
+    background: var(--btn-bg);
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    border-radius: 12px;
+    padding: 20px 0;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button:active {
+    background: var(--btn-active-bg);
+    transform: scale(0.97);
+}
+button:hover {
+    background: var(--btn-hover-bg);
+}
+button.operator {
+    background: var(--accent-color);
+    color: white;
+}
+button.operator:hover {
+    background: #ff5533;
+}
+button.double {
+    grid-column: span 2;
+}
+@media (max-width: 360px) {
+    .calculator {
+        width: 100%;
+        padding: 12px;
+    }
+    .display {
+        font-size: 1.8rem;
+        padding: 14px;
+        margin-bottom: 16px;
+        min-height: 50px;
+    }
+    button {
+        font-size: 1.3rem;
+        padding: 14px 0;
+    }
+}
